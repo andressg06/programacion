@@ -1,0 +1,36 @@
+@startuml
+package biblioteca {
+    class Libro {
+        - String titulo
+        - String autor
+        - boolean disponible
+        + Libro(String, String)
+        + String getTitulo()
+        + String getAutor()
+        + boolean isDisponible()
+        + void setDisponible(boolean)
+    }
+
+    class Usuario {
+        - String nombre
+        - String dni
+        + Usuario(String, String)
+        + String getNombre()
+        + String getDni()
+    }
+
+    class Prestamo {
+        - Libro libro
+        - Usuario usuario
+        + Prestamo(Libro, Usuario)
+        + void devolver()
+    }
+
+    class Biblioteca {
+        + main(String[] args)
+    }
+
+    Libro "1" <-- "1" Prestamo
+    Usuario "1" <-- "1" Prestamo
+}
+@enduml
